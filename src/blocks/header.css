@@ -1,0 +1,26 @@
+.header {
+  width: 880px;
+  display: flex;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+}
+
+.header__image {
+  margin-top: 45px;
+  margin-bottom: 41px;
+  background-image: url(../images/Header.svg);
+  width: 173px;
+  height: 33px;
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    width: 100%;
+  }
+  .header__image {
+    margin: 28px 0 32px 27px;
+    background-size: contain;
+    width: 126px;
+    height: 24px;
+  }
+}
