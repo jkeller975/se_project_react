@@ -17,16 +17,9 @@ function PopupWithForm({
           onClick={onClose}
         ></button>
         <h3 className="popup__title">{title}</h3>
-        <form
-          className="popup__form popup__form_type_profile"
-          name={name}
-          noValidate
-        >
+        <form className="popup__form" name={name}>
           {children}
-          <button
-            type="submit"
-            className="button popup__button popup__button-profile"
-          >
+          <button type="submit" className="button popup__button">
             {buttonText}
           </button>
         </form>
