@@ -72,6 +72,10 @@
   visibility: visible;
 }
 
+.card__delete-button_hidden {
+  visibility: hidden;
+}
+
 .card__like-container {
   display: flex;
   flex-direction: column;
