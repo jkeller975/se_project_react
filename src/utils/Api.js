@@ -91,7 +91,9 @@ class Api {
 }
 
 // API instance
-export const api = new Api({
+const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   authToken: "5e1a879b-7c30-44d6-a00c-43c3c87d943a",
 });
+
+export default api;
