@@ -33,7 +33,9 @@ function EditAvatarPopup({ isOpen, onUpdateAvatar, onClose }) {
         required
         ref={inputRef}
       />
-      <span className="popup__error" id="avatar-link-error"></span>
+      <span className="popup__error" id="avatar-link-error">
+        Placeholder
+      </span>
     </PopupWithForm>
   );
 }

@@ -20,6 +20,7 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({});
   const [currentUser, setCurrentUser] = React.useState({});
   const [cardList, setCardList] = React.useState([]);
+  const [card, setCard] = React.useState([]);
 
   React.useEffect(() => {
     api
@@ -71,10 +72,10 @@ function App() {
       .then((res) => {
         setCurrentUser(res);
       })
+      .then(() => closeAllPopups())
       .catch((err) => {
         console.log(err);
-      })
-      .finally(() => closeAllPopups());
+      });
   }
 
   function handleUpdateAvatar(avatar) {
@@ -84,10 +85,10 @@ function App() {
         setCurrentUser(newUserData);
         closeAllPopups();
       })
+      .then(() => closeAllPopups())
       .catch((err) => {
         console.log(err);
-      })
-      .finally(() => closeAllPopups());
+      });
   }
 
   function handleDeleteClick(card) {
@@ -97,11 +98,12 @@ function App() {
       .then(() => {
         const newCards = cardList.filter((c) => c._id !== card._id);
         setCardList(newCards);
+        setCard((state) => state.filter((card) => card._id !== card._id));
       })
+      .then(() => closeAllPopups())
       .catch((err) => {
         console.log(err);
-      })
-      .finally(() => closeAllPopups());
+      });
   }
 
   function handleCardLike(card) {
@@ -113,6 +115,7 @@ function App() {
           c._id === card._id ? newCard : c
         );
         setCardList(newCards);
+        setCard((state) => state.filter((card) => card._id !== card._id));
       })
       .catch((err) => {
         console.log(err);

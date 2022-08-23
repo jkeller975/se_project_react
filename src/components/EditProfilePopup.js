@@ -51,7 +51,9 @@ function EditProfilePopup({ isOpen, onUpdateUser, onClose }) {
         value={name || ""}
         onChange={handleNameChange}
       />
-      <span className="popup__error" id="profile-name-error"></span>
+      <span className="popup__error" id="profile-name-error">
+        Placeholder
+      </span>
 
       <input
         type="text"
@@ -65,7 +67,9 @@ function EditProfilePopup({ isOpen, onUpdateUser, onClose }) {
         value={description || ""}
         onChange={handleDescriptionChange}
       />
-      <span className="popup__error" id="profile-description-error"></span>
+      <span className="popup__error" id="profile-description-error">
+        Placeholder
+      </span>
     </PopupWithForm>
   );
 }

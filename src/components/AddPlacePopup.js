@@ -43,7 +43,9 @@ function AddPlacePopup({ isOpen, onAddPlace, onClose }) {
         onChange={handleNameChange}
         required
       />
-
+      <span className="popup__error" id="place-name-error">
+        Placeholder
+      </span>
       <input
         type="url"
         name="url"
@@ -54,6 +56,9 @@ function AddPlacePopup({ isOpen, onAddPlace, onClose }) {
         onChange={handleLinkChange}
         required
       />
+      <span className="popup__error" id="place-link-error">
+        Placeholder
+      </span>
     </PopupWithForm>
   );
 }
