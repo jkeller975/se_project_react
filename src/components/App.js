@@ -60,10 +60,15 @@ function App() {
   }
 
   function handleAddPlaceSubmit({ name, link }) {
-    api.addCard({ name, link }).then((newCard) => {
-      setCardList([newCard, ...cardList]);
-      closeAllPopups();
-    });
+    api
+      .addCard({ name, link })
+      .then((newCard) => {
+        setCardList([newCard, ...cardList]);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleUpdateUser({ name, about }) {
@@ -71,8 +76,8 @@ function App() {
       .setUserInfo({ name, about })
       .then((res) => {
         setCurrentUser(res);
+        closeAllPopups();
       })
-      .then(() => closeAllPopups())
       .catch((err) => {
         console.log(err);
       });
@@ -85,7 +90,6 @@ function App() {
         setCurrentUser(newUserData);
         closeAllPopups();
       })
-      .then(() => closeAllPopups())
       .catch((err) => {
         console.log(err);
       });
@@ -96,11 +100,8 @@ function App() {
     api
       .removeCard(card._id)
       .then(() => {
-        const newCards = cardList.filter((c) => c._id !== card._id);
-        setCardList(newCards);
-        setCard((state) => state.filter((card) => card._id !== card._id));
+        setCardList((state) => state.filter((c) => c._id !== card._id));
       })
-      .then(() => closeAllPopups())
       .catch((err) => {
         console.log(err);
       });
@@ -110,12 +111,8 @@ function App() {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     api
       .toggleLike(card._id, isLiked)
-      .then((newCard) => {
-        const newCards = cardList.map((c) =>
-          c._id === card._id ? newCard : c
-        );
-        setCardList(newCards);
-        setCard((state) => state.filter((card) => card._id !== card._id));
+      .then(() => {
+        setCardList((state) => state.filter((c) => c._id !== card._id));
       })
       .catch((err) => {
         console.log(err);
