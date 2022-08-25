@@ -20,7 +20,6 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({});
   const [currentUser, setCurrentUser] = React.useState({});
   const [cardList, setCardList] = React.useState([]);
-  const [card, setCard] = React.useState([]);
 
   React.useEffect(() => {
     api
@@ -111,8 +110,10 @@ function App() {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     api
       .toggleLike(card._id, isLiked)
-      .then(() => {
-        setCardList((state) => state.filter((c) => c._id !== card._id));
+      .then((newCard) => {
+        setCardList((state) =>
+          state.map((c) => (c._id === card._id ? newCard : c))
+        );
       })
       .catch((err) => {
         console.log(err);
