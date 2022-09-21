@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/around-react/static/css/main.18575c1e.css",
+    "main.js": "/around-react/static/js/main.849cffe2.js",
+    "static/js/787.1c78f32b.chunk.js": "/around-react/static/js/787.1c78f32b.chunk.js",
+    "static/media/Inter-Medium.woff": "/around-react/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff": "/around-react/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff": "/around-react/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Header.svg": "/around-react/static/media/Header.1cbd17bf29e567f9c70f.svg",
+    "static/media/Like_disabled.svg": "/around-react/static/media/Like_disabled.99043841e8bec6b9df21.svg",
+    "index.html": "/around-react/index.html",
+    "static/media/delete.svg": "/around-react/static/media/delete.ba43124316072f7a8629.svg",
+    "static/media/Like_active.svg": "/around-react/static/media/Like_active.f8482d28867cec189b08.svg",
+    "static/media/Close.svg": "/around-react/static/media/Close.e6c3a9a9a26912881a20.svg",
+    "static/media/Edit_Button.svg": "/around-react/static/media/Edit_Button.af236f6cf67005f1d7aa.svg",
+    "static/media/AvatarEdit.svg": "/around-react/static/media/AvatarEdit.ae1a976ddb506239e9f0.svg",
+    "static/media/Add.svg": "/around-react/static/media/Add.bed8c136e13907f5eefb.svg",
+    "main.18575c1e.css.map": "/around-react/static/css/main.18575c1e.css.map",
+    "main.849cffe2.js.map": "/around-react/static/js/main.849cffe2.js.map",
+    "787.1c78f32b.chunk.js.map": "/around-react/static/js/787.1c78f32b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18575c1e.css",
+    "static/js/main.849cffe2.js"
+  ]
+}
