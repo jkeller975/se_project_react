@@ -192,3 +192,21 @@
 .popup__button-confirm {
   margin: 0;
 }
+
+.popup__container_tooltip {
+  text-align: center;
+}
+
+.popup__status-message {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  color: #000;
+  margin-bottom: 0px;
+}
+
+.popup__icon {
+  padding-top: 50px;
+}
