@@ -7,17 +7,9 @@ export const register = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ password, email }),
-  })
-    .then((res) => {
-      if (res.status === 201) {
-        debugger;
-        return res.json();
-      }
-    })
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => console.log(err));
+  }).then((res) =>
+    res.ok ? res.json() : Promise.reject(new Error(`Error! ${res.statusText}`))
+  );
 };
 
 export const login = (email, password) => {
@@ -28,15 +20,16 @@ export const login = (email, password) => {
     },
     body: JSON.stringify({ password, email }),
   })
-    .then((res) => {
-      return res.json();
-    })
+    .then((res) =>
+      res.ok
+        ? res.json()
+        : Promise.reject(new Error(`Error! ${res.statusText}`))
+    )
     .then((data) => {
       localStorage.setItem("jwt", data.jwt);
       localStorage.setItem("email", email);
       return data;
-    })
-    .catch((err) => console.log(err));
+    });
 };
 
 export const checkToken = (token) => {
@@ -46,14 +39,7 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  })
-    .then((res) => {
-      if (res.status === 201) {
-        return res.json();
-      }
-    })
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => console.log(err));
+  }).then((res) =>
+    res.ok ? res.json() : Promise.reject(new Error(`Error! ${res.statusText}`))
+  );
 };

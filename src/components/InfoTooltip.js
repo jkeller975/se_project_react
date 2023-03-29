@@ -1,5 +1,5 @@
-import SuccessIcon from "../images/success-icon.svg";
-import ErrorIcon from "../images/error-icon.svg";
+import successIcon from "../images/success-icon.svg";
+import errorIcon from "../images/error-icon.svg";
 
 function InfoTooltip({ isOpen, onClose, status }) {
   return (
@@ -8,7 +8,7 @@ function InfoTooltip({ isOpen, onClose, status }) {
       onClick={onClose}
     >
       <div className="popup__container popup__container_tooltip">
-        <form className="popup__form" noValidate>
+        <div className="popup__form" noValidate>
           <button
             type="button"
             aria-label="Close"
@@ -16,7 +16,7 @@ function InfoTooltip({ isOpen, onClose, status }) {
           ></button>
           {status === "success" ? (
             <div className="popup__info">
-              <img className="popup__icon" src={SuccessIcon} alt="Success!" />
+              <img className="popup__icon" src={successIcon} alt="Success!" />
               <p className="popup__status-message">
                 Success! You have now been registered.
               </p>
@@ -25,7 +25,7 @@ function InfoTooltip({ isOpen, onClose, status }) {
             <div>
               <img
                 className="popup__icon"
-                src={ErrorIcon}
+                src={errorIcon}
                 alt="Opps, something went wrong!"
               />
               <p className="popup__status-message">
@@ -33,7 +33,7 @@ function InfoTooltip({ isOpen, onClose, status }) {
               </p>
             </div>
           )}
-        </form>
+        </div>
       </div>
     </div>
   );

@@ -179,6 +179,21 @@ function App() {
     history.push("/signin");
   }
 
+  React.useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      auth.checkToken(jwt).then((res) => {
+        if (res) {
+          setEmail(res.data.email);
+          setIsLoggedIn(true);
+          history.push("/");
+        } else {
+          localStorage.removeItem("jwt");
+        }
+      });
+    }
+  });
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
