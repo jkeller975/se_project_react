@@ -1,5 +1,12 @@
 export const BASE_URL = "https://register.nomoreparties.co";
 
+function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error ${res.status}`);
+}
+
 export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
@@ -7,9 +14,7 @@ export const register = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ password, email }),
-  }).then((res) =>
-    res.ok ? res.json() : Promise.reject(new Error(`Error! ${res.statusText}`))
-  );
+  }).then(checkResponse);
 };
 
 export const login = (email, password) => {
@@ -20,11 +25,7 @@ export const login = (email, password) => {
     },
     body: JSON.stringify({ password, email }),
   })
-    .then((res) =>
-      res.ok
-        ? res.json()
-        : Promise.reject(new Error(`Error! ${res.statusText}`))
-    )
+    .then(checkResponse)
     .then((data) => {
       localStorage.setItem("jwt", data.jwt);
       localStorage.setItem("email", email);
@@ -39,7 +40,5 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) =>
-    res.ok ? res.json() : Promise.reject(new Error(`Error! ${res.statusText}`))
-  );
+  }).then(checkResponse);
 };

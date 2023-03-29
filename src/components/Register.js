@@ -5,6 +5,14 @@ function Register({ onRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const userData = { email, password };
@@ -22,7 +30,8 @@ function Register({ onRegister }) {
               id="email"
               className="auth-form__textfield"
               placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
+              value={email || " "}
+              onChange={handleEmailChange}
               required
             />
           </label>
@@ -33,7 +42,8 @@ function Register({ onRegister }) {
               id="password"
               className="auth-form__textfield"
               placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
+              value={password || " "}
+              onChange={handlePasswordChange}
               required
             />
           </label>
